@@ -20,21 +20,48 @@ public class BinaryTreeDemo {
         root.setRightNode(node4);
         node4.setLeftNode(node3);
         node4.setRightNode(node5);
-
+        /*
         //        1
         //     2     4
         //         3   5
         //前序遍历
-        System.out.println("前序遍历");
+        System.out.println("前序遍历");//12435
         binaryTree.proOrder();
 
         //中序遍历
-        System.out.println("中序遍历");
+        System.out.println("中序遍历");//21345
         binaryTree.infixOrder();
 
         //后序遍历
-        System.out.println("后序遍历");
-        binaryTree.postOrder();
+        System.out.println("后序遍历");//23541
+        binaryTree.postOrder();*/
+        TreeNode resNode;
+        /*//先序查找 找4次
+        System.out.println("先序查找");
+        resNode = binaryTree.preOrderSearch(3);
+        if (resNode != null) {
+            System.out.println(resNode);
+        }else {
+            System.out.println("没找到该节点");
+        }*/
+
+        /*//中序查找 找3次
+        System.out.println("中序查找");
+        resNode = binaryTree.infixOrderSearch(3);
+        if (resNode != null) {
+            System.out.println(resNode);
+        }else {
+            System.out.println("没找到该节点");
+        }*/
+
+        //后序查找 找2次
+        System.out.println("后序查找");
+        resNode = binaryTree.postOrderSearch(3);
+        if (resNode != null) {
+            System.out.println(resNode);
+        }else {
+            System.out.println("没找到该节点");
+        }
 
     }
 }
@@ -46,7 +73,7 @@ class BinaryTree {
         this.root = root;
     }
 
-    public void proOrder(){
+    public void proOrder() {
         if (this.root != null) {
             this.root.preOrder();
         } else {
@@ -54,7 +81,7 @@ class BinaryTree {
         }
     }
 
-    public void infixOrder(){
+    public void infixOrder() {
         if (this.root != null) {
             this.root.infixOrder();
         } else {
@@ -62,7 +89,7 @@ class BinaryTree {
         }
     }
 
-    public void postOrder(){
+    public void postOrder() {
         if (this.root != null) {
             this.root.postOrder();
         } else {
@@ -70,6 +97,47 @@ class BinaryTree {
         }
     }
 
+    /**
+     * 树的前序
+     *
+     * @param no 查找编号
+     * @return 结果
+     */
+    public TreeNode preOrderSearch(int no) {
+        if (root != null) {
+            return root.preOrderSearch(no);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 树的中序
+     *
+     * @param no 查找编号
+     * @return 结果
+     */
+    public TreeNode infixOrderSearch(int no) {
+        if (root != null) {
+            return root.infixOrderSearch(no);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 树的后续
+     *
+     * @param no 查找编号
+     * @return 结果
+     */
+    public TreeNode postOrderSearch(int no) {
+        if (root != null) {
+            return root.postOrderSearch(no);
+        } else {
+            return null;
+        }
+    }
 }
 
 class TreeNode {
@@ -90,7 +158,7 @@ class TreeNode {
     }
 
     //中序遍历
-    public void infixOrder(){
+    public void infixOrder() {
         if (this.leftNode != null) {
             this.leftNode.infixOrder();
         }
@@ -101,7 +169,7 @@ class TreeNode {
     }
 
     //后序遍历
-    public void postOrder(){
+    public void postOrder() {
         if (this.leftNode != null) {
             this.leftNode.postOrder();
         }
@@ -109,6 +177,82 @@ class TreeNode {
             this.rightNode.postOrder();
         }
         System.out.println(this);
+    }
+
+    /**
+     * 前序查找
+     *
+     * @param no 查找编号
+     * @return 返回找到的节点，没找到返回null
+     */
+    public TreeNode preOrderSearch(int no) {
+        TreeNode resultNode = null;
+        //前序，先比较当前根节点
+        if (this.no == no) {
+            return this;
+        }
+        //如果左节点不为空，则递归前序遍历
+        if (this.leftNode != null) {
+            resultNode = this.leftNode.preOrderSearch(no);
+            //如果递归找到了，直接返回结果
+            if (resultNode != null) {
+                return resultNode;
+            }
+        }
+        if (this.rightNode != null) {
+            resultNode = this.rightNode.preOrderSearch(no);
+        }
+        //不管右递归找没找到都返回
+        return resultNode;
+    }
+
+    /**
+     * 中序查找
+     *
+     * @param no 查找节点编号
+     * @return 返回找到的节点
+     */
+    public TreeNode infixOrderSearch(int no) {
+        TreeNode resultNode = null;
+        if (this.leftNode != null) {
+            resultNode = this.leftNode.infixOrderSearch(no);
+            if (resultNode != null) {
+                return resultNode;
+            }
+        }
+        if (this.no == no) {
+            return this;
+        }
+        if (this.rightNode != null) {
+            resultNode = this.rightNode.infixOrderSearch(no);
+        }
+        return resultNode;
+    }
+
+    /**
+     * 后序查找
+     *
+     * @param no 查找节点编号
+     * @return 返回找到的节点
+     */
+    public TreeNode postOrderSearch(int no) {
+        TreeNode resultNode = null;
+        if (this.leftNode != null) {
+            resultNode = this.leftNode.postOrderSearch(no);
+            if (resultNode != null) {
+                return resultNode;
+            }
+        }
+        if (this.rightNode != null) {
+            resultNode = this.rightNode.postOrderSearch(no);
+            if (resultNode != null) {
+                return resultNode;
+            }
+        }
+        if (this.no == no) {
+            return this;
+        }
+        return null;
     }
 
     public TreeNode() {

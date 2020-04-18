@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * 单链表
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-03
  */
 public class singleLinkedList {
@@ -167,6 +167,7 @@ class sinLinkedList {
 
     /**
      * 删除英雄节点
+     *
      * @param heroID
      */
     public void delNode(int heroID) {

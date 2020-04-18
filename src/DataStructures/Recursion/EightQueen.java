@@ -1,12 +1,11 @@
 package DataStructures.Recursion;
 
-import java.util.Collection;
 
 /**
  * 八皇后问题
  * 本程序采用一维数组递归回溯算法
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-07
  */
 public class EightQueen {
@@ -17,18 +16,20 @@ public class EightQueen {
     int[] array = new int[MAX];
     static int count = 0;
     static int JudgeCount = 0;
+
     public static void main(String[] args) {
         EightQueen eightQueen = new EightQueen();
         eightQueen.check(0);
-        System.out.println("一共有"+count+"种解法");
-        System.out.println("一共进行了"+JudgeCount+"次判断");
+        System.out.println("一共有" + count + "种解法");
+        System.out.println("一共进行了" + JudgeCount + "次判断");
     }
 
     /**
      * 递归主体
+     *
      * @param n 从第n个皇后开始
      */
-    private void check(int n){
+    private void check(int n) {
         //递归头：n是从0开始，如果n == MAX，说明八个皇后已经摆满了，将要摆第九个
         if (n == MAX) {
             count++;//解计数器
@@ -46,12 +47,14 @@ public class EightQueen {
             //判断为false，i++，把皇后放在当前行的下一列即可
         }
     }
+
     /**
      * 每放置一个皇后就要和前面已经放好的皇后进行判断，是否当前皇后和前面已经摆放好的皇后冲突
+     *
      * @param n 当前第几个皇后
      * @return true说明没冲突
      */
-    private boolean judge(int n){
+    private boolean judge(int n) {
         JudgeCount++;//判断次数计数器
         //这里的循环是列循环
         //此处刚刚放入一个皇后，进行判断刚放入的位置和前面已经放好位置的皇后有无冲突
@@ -64,10 +67,11 @@ public class EightQueen {
         }
         return true;
     }
+
     /**
      * 打印一个解
      */
-    private void printArr(){
+    private void printArr() {
         for (int value : array) {
             System.out.print(value);
         }

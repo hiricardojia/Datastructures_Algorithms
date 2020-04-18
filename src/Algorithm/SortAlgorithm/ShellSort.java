@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 希尔排序
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-09
  */
 public class ShellSort {

@@ -3,7 +3,7 @@ package DataStructures.Recursion;
 /**
  * 递归实现迷宫
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-07
  */
 public class mazeQuestion {

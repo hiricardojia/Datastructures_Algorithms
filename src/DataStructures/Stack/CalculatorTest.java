@@ -4,7 +4,7 @@ package DataStructures.Stack;
  * 数组链表实现计算器，中缀表达式
  * 此程序问题：两个减号会出现错误，例如：5-6*2-1，正确答案-8，这个算出-6，因为5-12-1，先算12-1，没有考虑到12前面的-号
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-05
  */
 public class CalculatorTest {

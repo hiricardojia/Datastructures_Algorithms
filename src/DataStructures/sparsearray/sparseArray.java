@@ -4,10 +4,11 @@ import java.io.*;
 
 /**
  * 将棋盘的二维数组转化成稀疏数组进行存储
- * @auther Jia RenHao
+ *
+ * @author Jia RenHao
  * @create 2020-03-31
  */
-public class sparseArray implements Serializable{
+public class sparseArray implements Serializable {
     public static void main(String[] args) {
         //创建一个原始二维数组 0表示没有棋子，1黑子，2蓝子
         int[][] chessArr1 = new int[11][11];
@@ -32,7 +33,7 @@ public class sparseArray implements Serializable{
             }
         }
         //2.创建对应的稀疏数组
-        int[][] sparseArr = new int[sum+1][3];
+        int[][] sparseArr = new int[sum + 1][3];
         //给稀疏数组赋值
         sparseArr[0][0] = chessArr1.length;
         sparseArr[0][1] = chessArr1[0].length;
@@ -74,7 +75,7 @@ public class sparseArray implements Serializable{
         System.out.println("恢复后的二维数组");
         for (int[] row : chessArr2) {
             for (int data : row) {
-                System.out.printf("%d\t",data);
+                System.out.printf("%d\t", data);
             }
             System.out.println();
         }
@@ -86,7 +87,7 @@ public class sparseArray implements Serializable{
             oos.writeObject(sparseArr);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (oos != null) {
                 try {
                     oos.close();
@@ -116,7 +117,7 @@ public class sparseArray implements Serializable{
         System.out.println();
         System.out.println("从磁盘得到的稀疏数组：");
         for (int i = 0; i < sparseArr2.length; i++) {
-            System.out.printf("%d\t%d\t%d\t\n",sparseArr[i][0],sparseArr[i][1],sparseArr[i][2]);
+            System.out.printf("%d\t%d\t%d\t\n", sparseArr[i][0], sparseArr[i][1], sparseArr[i][2]);
         }
     }
 }

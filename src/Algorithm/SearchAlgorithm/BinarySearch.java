@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 二分法查找
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-13
  */
 public class BinarySearch {

@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 逆波兰表达式实现计算器
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-06
  */
 public class PolandNotation {

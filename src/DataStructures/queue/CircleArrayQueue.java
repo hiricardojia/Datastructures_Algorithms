@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 数组模拟循环队列
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-02
  */
 public class CircleArrayQueue {

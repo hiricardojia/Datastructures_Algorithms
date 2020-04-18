@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 哈希表
  * 实现雇员在哈希表中的存储
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-15
  */
 public class HashTableDemo {
@@ -78,22 +78,22 @@ class EmpHashTable {
         }
     }
 
-    public void findEmpById(int id){
+    public void findEmpById(int id) {
         int hashCode = hashFun(id);
         Employee emp = EmpLinkedListArray[hashCode].findEmpById(id);
         if (emp == null) {
             System.out.println("表中没有该雇员信息~~");
-        }else {
-            System.out.println("在第"+hashCode+"表中找到该雇员信息"+emp);
+        } else {
+            System.out.println("在第" + hashCode + "表中找到该雇员信息" + emp);
         }
     }
 
-    public void delEmpById(int id){
+    public void delEmpById(int id) {
         int hashCode = hashFun(id);
         int flag = EmpLinkedListArray[hashCode].delEmpById(id);
         if (flag > 0) {
             System.out.println("删除成功");
-        }else {
+        } else {
             System.out.println("未找到您要删除的雇员");
         }
     }
@@ -152,17 +152,17 @@ class EmpLinkedList {
         }
     }
 
-    public int delEmpById(int id){
+    public int delEmpById(int id) {
         if (head == null) {
             System.out.println("链表为空~~");
             return -1;
-        }else {
+        } else {
             curEmp = head;
             while (true) {
                 if (curEmp.next.getId() == id) {
                     curEmp.next = curEmp.next.next;
                     return 1;
-                }else if (curEmp.next == null) {
+                } else if (curEmp.next == null) {
                     return -1;
                 }
                 curEmp = curEmp.next;

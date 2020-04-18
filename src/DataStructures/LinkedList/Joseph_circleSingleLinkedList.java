@@ -3,7 +3,7 @@ package DataStructures.LinkedList;
 /**
  * 单向循环链表_约瑟夫问题
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-04
  */
 public class Joseph_circleSingleLinkedList {
@@ -11,7 +11,7 @@ public class Joseph_circleSingleLinkedList {
         CirSingleLinkedList cirSingleLinkedList = new CirSingleLinkedList();
         cirSingleLinkedList.addChileNode(5);
         cirSingleLinkedList.showChildren();
-        cirSingleLinkedList.outCircle(1,2,5);
+        cirSingleLinkedList.outCircle(1, 2, 5);
     }
 }
 
@@ -24,7 +24,7 @@ class CirSingleLinkedList {
     /**
      * 添加孩子节点
      *
-     * @param num   一共有几个小孩围成圈
+     * @param num 一共有几个小孩围成圈
      */
     public void addChileNode(int num) {
         //对参数的合理性进行判断
@@ -107,7 +107,7 @@ class CirSingleLinkedList {
             first = first.getNext();
             last.setNext(first);
         }
-        System.out.println("最后一个留在圈中的小孩编号是"+first.getId());
+        System.out.println("最后一个留在圈中的小孩编号是" + first.getId());
     }
 }
 

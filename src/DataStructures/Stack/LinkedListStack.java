@@ -3,7 +3,7 @@ package DataStructures.Stack;
 /**
  * 链表模拟栈
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-05
  */
 public class LinkedListStack {

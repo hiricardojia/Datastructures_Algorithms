@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 数组实现队列
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-01
  */
 public class ArrayQueue {
@@ -31,14 +31,14 @@ public class ArrayQueue {
                 case 'g':
                     try {
                         int queue = arrQueue.getQueue();
-                        System.out.println("取出的数据是："+queue+"\n");
+                        System.out.println("取出的数据是：" + queue + "\n");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case 'h':
                     try {
-                        System.out.println("首元素是："+arrQueue.headQueue()+"\n");
+                        System.out.println("首元素是：" + arrQueue.headQueue() + "\n");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -102,7 +102,7 @@ class ArrQueue {
         if (isEmpty()) {
             throw new RuntimeException("队列为空，没有元素");
         }
-        for (int i = 0; i < rear+1; i++) {
+        for (int i = 0; i < rear + 1; i++) {
             System.out.printf("arr[%d] = %d\t", i, arr[i]);
         }
         System.out.println();

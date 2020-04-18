@@ -3,7 +3,7 @@ package DataStructures.Tree;
 /**
  * 二叉树
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-16
  */
 public class BinaryTreeDemo {
@@ -26,7 +26,7 @@ public class BinaryTreeDemo {
         //         3   5
         //前序遍历
         System.out.println("前序遍历");//12435
-        binaryTree.proOrder();
+        binaryTree.preOrder();
 
         //中序遍历
         System.out.println("中序遍历");//21345
@@ -73,7 +73,7 @@ class BinaryTree {
         this.root = root;
     }
 
-    public void proOrder() {
+    public void preOrder() {
         if (this.root != null) {
             this.root.preOrder();
         } else {
@@ -126,7 +126,7 @@ class BinaryTree {
     }
 
     /**
-     * 树的后续
+     * 树的后序
      *
      * @param no 查找编号
      * @return 结果

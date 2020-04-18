@@ -5,15 +5,15 @@ import java.util.Arrays;
 /**
  * 斐波那契查找
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-14
  */
 public class FibonacciSearch {
     static final int MAXSIZE = 20;
 
     public static void main(String[] args) {
-        int [] arr = {1,8, 10, 89, 1000, 1234};
-        System.out.println("index="+fibonacciSearch(arr,1234));
+        int[] arr = {1, 8, 10, 89, 1000, 1234};
+        System.out.println("index=" + fibonacciSearch(arr, 1234));
     }
 
     /**

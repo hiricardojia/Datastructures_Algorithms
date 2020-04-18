@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 插值查找，和二分查找仅在中间值的算法不同
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-13
  */
 public class InsertValueSearch {

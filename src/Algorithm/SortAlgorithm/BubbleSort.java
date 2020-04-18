@@ -1,11 +1,10 @@
 package Algorithm.SortAlgorithm;
 
-import java.util.Arrays;
 
 /**
  * 冒泡排序
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-08
  */
 public class BubbleSort {
@@ -24,7 +23,7 @@ public class BubbleSort {
 
     }
 
-    public static void bubbleSort(int[] arr){
+    public static void bubbleSort(int[] arr) {
         int temp;
         boolean flag;
         for (int i = 0; i < arr.length - 1; i++) {

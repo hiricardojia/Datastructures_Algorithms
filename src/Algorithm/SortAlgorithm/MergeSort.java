@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 归并排序，分治策略
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-10
  */
 public class MergeSort {

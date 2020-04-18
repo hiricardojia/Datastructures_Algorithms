@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 基数排序（桶排序升级版）
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-11
  */
 public class RadixSort {

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * 双向链表
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-04
  */
 public class doubleLinkedList {

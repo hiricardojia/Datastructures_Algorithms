@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 数组模拟栈
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-05
  */
 public class ArrayStack {

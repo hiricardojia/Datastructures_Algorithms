@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 快速排序
  *
- * @auther Jia RenHao
+ * @author Jia RenHao
  * @create 2020-04-09
  */
 public class QuickSort {
@@ -28,8 +28,8 @@ public class QuickSort {
     /**
      * 快速排序
      *
-     * @param arr 要排序的数组
-     * @param low 左指针
+     * @param arr  要排序的数组
+     * @param low  左指针
      * @param high 右指针
      */
     public static void quickSort(int[] arr, int low, int high) {

@@ -1,5 +1,6 @@
 package DataStructures.HuffmanCoding;
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -13,34 +14,116 @@ public class HumanCoding {
     public static void main(String[] args) {
         String context = "i like like like java do you like a java";
         //测试压缩
-        byte[] bytes = HuffmanTree.HuffmanCompression(context);
+        byte[] contextBytes = context.getBytes();
+        byte[] bytes = HuffmanTree.HuffmanCompression(contextBytes);
         System.out.println(Arrays.toString(bytes));
         //测试解压
-        String unzipContext = HuffmanTree.unzip(bytes, HuffmanTree.huffmanCode);
-        System.out.println(unzipContext);
+        byte[] unzip = HuffmanTree.unzip(bytes, HuffmanTree.huffmanCode);
+        String s = new String(unzip);
+        System.out.println(s);
     }
 }
 
 class HuffmanTree {
 
+    /**
+     * 文件压缩
+     *
+     * @param srcFile 源文件
+     * @param dstFile 目标文件
+     */
+    public static void fileZip(File srcFile, File dstFile) {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            fis = new FileInputStream(srcFile);
+            byte[] srcByte = new byte[fis.available()];
+            fis.read(srcByte);
+            byte[] zipBytes = HuffmanTree.HuffmanCompression(srcByte);
+            fos = new FileOutputStream(dstFile);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(zipBytes);
+            oos.writeObject(HuffmanTree.huffmanCode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
+                if (fis != null) {
+                    fis.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 文件解压
+     *
+     * @param zipFile 压缩源文件
+     * @param dstFile 目标文件
+     */
+    public static void fileUnZip(File zipFile, File dstFile) {
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        FileOutputStream fos = null;
+        try {
+            fis = new FileInputStream(zipFile);
+            ois = new ObjectInputStream(fis);
+            byte[] huffmanCode = (byte[]) ois.readObject();
+            Map<Byte, String> huffmanCodeMap = (Map<Byte, String>) ois.readObject();
+            byte[] unzip = unzip(huffmanCode, huffmanCodeMap);
+            fos = new FileOutputStream(dstFile);
+            fos.write(unzip);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (ois != null) {
+                try {
+                    ois.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     /**
      * 封装整个赫夫曼压缩过程
      *
-     * @param context 原始压缩字符串数据
+     * @param srcByte 原始字节数组
      * @return 返回压缩后的字节数组
      */
-    public static byte[] HuffmanCompression(String context) {
-        //将字符串转成字节数组
-        byte[] contextBytes = context.getBytes();
+    public static byte[] HuffmanCompression(byte[] srcByte) {
         //利用字节数组生成树节点
-        List<Node> nodes = getNodes(contextBytes);
+        List<Node> nodes = getNodes(srcByte);
         //利用生成的树节点集合创建赫夫曼树,得到根节点
         Node root = createHuffmanTree(nodes);
         //根据生成的树产生每个数据对应的赫夫曼编码
         Map<Byte, String> huffmanCodeMap = getPathCode(root);
         //进行最后的压缩
-        return zip(contextBytes, huffmanCodeMap);
+        return zip(srcByte, huffmanCodeMap);
     }
 
     /**
@@ -179,7 +262,7 @@ class HuffmanTree {
      * @param huffmanCodeMap   赫夫曼编码表
      * @return 返回原始的文本内容
      */
-    public static String unzip(byte[] huffmanCodeBytes, Map<Byte, String> huffmanCodeMap) {
+    public static byte[] unzip(byte[] huffmanCodeBytes, Map<Byte, String> huffmanCodeMap) {
         StringBuilder stringBuilder = new StringBuilder();
         //进行字符串拼接
         for (int i = 0; i < huffmanCodeBytes.length; i++) {
@@ -216,13 +299,13 @@ class HuffmanTree {
         for (int i = 0; i < list.size(); i++) {
             resBytes[i] = list.get(i);
         }
-        return new String(resBytes);
+        return resBytes;
     }
 
     /**
      * 将byte转换成bit字符串进行拼接
      *
-     * @param b      传入的byte
+     * @param b    传入的byte
      * @param flag 是否是最后一个
      * @return 返回bit字符串
      */

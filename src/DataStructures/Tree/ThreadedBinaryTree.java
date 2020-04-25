@@ -9,13 +9,13 @@ package DataStructures.Tree;
  */
 public class ThreadedBinaryTree {
     public static void main(String[] args) {
-        Node root = new Node(1, "疾风剑豪");
-        Node node2 = new Node(2, "影流之主");
-        Node node3 = new Node(3, "盲僧");
-        Node node4 = new Node(4, "放逐之刃");
-        Node node5 = new Node(5, "戏命师");
-        Node node6 = new Node(6, "刀锋之影");
-        Node node7 = new Node(7, "诡术妖姬");
+        TTNode root = new TTNode(1, "疾风剑豪");
+        TTNode node2 = new TTNode(2, "影流之主");
+        TTNode node3 = new TTNode(3, "盲僧");
+        TTNode node4 = new TTNode(4, "放逐之刃");
+        TTNode node5 = new TTNode(5, "戏命师");
+        TTNode node6 = new TTNode(6, "刀锋之影");
+        TTNode node7 = new TTNode(7, "诡术妖姬");
         threadedBinTree tree = new threadedBinTree();
         tree.setRoot(root);
         root.setLeftNode(node2);
@@ -36,10 +36,10 @@ public class ThreadedBinaryTree {
 }
 
 class threadedBinTree {
-    private Node root;
-    private Node pre;//用来保存当前节点的前一个节点
+    private TTNode root;
+    private TTNode pre;//用来保存当前节点的前一个节点
 
-    public void setRoot(Node root) {
+    public void setRoot(TTNode root) {
         this.root = root;
     }
 
@@ -62,7 +62,7 @@ class threadedBinTree {
      *
      * @param node 当前线索化的节点
      */
-    public void preThreadedNodes(Node node) {
+    public void preThreadedNodes(TTNode node) {
         if (node == null) {
             return;
         }
@@ -93,7 +93,7 @@ class threadedBinTree {
      *
      * @param node 当前线索化的节点
      */
-    public void infixThreadedNodes(Node node) {
+    public void infixThreadedNodes(TTNode node) {
         if (node == null) {
             return;
         }
@@ -120,7 +120,7 @@ class threadedBinTree {
      */
     public void preThreadedList() {
         //定义一个变量用来存储当前遍历的节点,从root开始
-        Node curNode = root;
+        TTNode curNode = root;
         while (curNode != null) {
             System.out.println(curNode);
             while (curNode.getLeftType() == 0) {
@@ -135,7 +135,7 @@ class threadedBinTree {
      */
     public void infixThreadedList() {
         //定义一个变量用来存储当前遍历的节点,从root开始
-        Node curNode = root;
+        TTNode curNode = root;
         while (curNode != null) {
             while (curNode.getLeftType() == 0) {
                 curNode = curNode.getLeftNode();
@@ -150,15 +150,15 @@ class threadedBinTree {
     }
 }
 
-class Node {
+class TTNode {
     private int no;
     private String name;
-    private Node leftNode;
-    private Node rightNode;
+    private TTNode leftNode;
+    private TTNode rightNode;
     private int leftType;//保存left节点的类型 0是左子树，1是前驱节点
     private int rightType;//保存right节点的类型，0是右子树，1是后继节点
 
-    public Node(int no, String name) {
+    public TTNode(int no, String name) {
         this.no = no;
         this.name = name;
     }
@@ -179,19 +179,19 @@ class Node {
         this.name = name;
     }
 
-    public Node getLeftNode() {
+    public TTNode getLeftNode() {
         return leftNode;
     }
 
-    public void setLeftNode(Node leftNode) {
+    public void setLeftNode(TTNode leftNode) {
         this.leftNode = leftNode;
     }
 
-    public Node getRightNode() {
+    public TTNode getRightNode() {
         return rightNode;
     }
 
-    public void setRightNode(Node rightNode) {
+    public void setRightNode(TTNode rightNode) {
         this.rightNode = rightNode;
     }
 

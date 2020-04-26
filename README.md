@@ -1,4 +1,4 @@
-# Datastructures_Algorithms
+# DataStructures_Algorithms
 > 贾小帅的数据结构和算法学习记录
 
 ## 数据结构(当前已完成)
@@ -18,6 +18,9 @@
     - 逆波兰表达式实现计算器
 - 哈希表
 - 二叉树
+    - BST
+    - 红黑树
+    - 赫夫曼树
 
 ## 算法(当前已完成)
 

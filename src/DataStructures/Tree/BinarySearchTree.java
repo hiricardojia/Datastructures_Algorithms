@@ -28,13 +28,13 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, Value> {
             N = n;
         }
 
-        public void infixOrder() {
+        public void preOrder() {
             System.out.println(this);
             if (this.left != null) {
-                this.left.infixOrder();
+                this.left.preOrder();
             }
             if (this.right != null) {
-                this.right.infixOrder();
+                this.right.preOrder();
             }
         }
 
@@ -153,7 +153,7 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, Value> {
 
     public void preOrder() {
         if (root != null) {
-            root.infixOrder();
+            root.preOrder();
         } else {
             System.out.println("树空！！");
         }

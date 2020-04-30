@@ -56,8 +56,8 @@ public class HashTableDemo {
 }
 
 class EmpHashTable {
-    private EmpLinkedList[] EmpLinkedListArray;
-    private int size;
+    private final EmpLinkedList[] EmpLinkedListArray;
+    private final int size;
 
     public EmpHashTable(int size) {
         this.size = size;

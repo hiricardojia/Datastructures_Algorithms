@@ -1,4 +1,4 @@
-package Algorithm.DivideAndConquerAlgorithm;
+package Algorithms.DivideAndConquerAlgorithm;
 
 /**
  * @Title: 汉诺塔

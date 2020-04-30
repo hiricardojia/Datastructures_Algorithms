@@ -1,6 +1,4 @@
-package Algorithm.SortAlgorithm;
-
-import java.util.Arrays;
+package Algorithms.SortAlgorithm;
 
 /**
  * 希尔排序

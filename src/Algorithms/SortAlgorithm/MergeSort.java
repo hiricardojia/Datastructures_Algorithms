@@ -1,6 +1,4 @@
-package Algorithm.SortAlgorithm;
-
-import java.util.Arrays;
+package Algorithms.SortAlgorithm;
 
 /**
  * 归并排序，分治策略

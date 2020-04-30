@@ -1,7 +1,6 @@
-package Algorithm.SearchAlgorithm;
+package Algorithms.SearchAlgorithm;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 插值查找，和二分查找仅在中间值的算法不同

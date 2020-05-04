@@ -34,7 +34,7 @@ public class LinkedListStack {
  * 链表栈
  */
 class LinkedList{
-    private Node4Stack headNode;//头节点
+    private final Node4Stack headNode;//头节点
     private int size;//当前栈长度
 
     public LinkedList() {

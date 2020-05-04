@@ -133,9 +133,7 @@ public class PolandNotation {
         List<String> list = new ArrayList<>();
         //对表达式按空格进行分隔
         String[] split = suffixExpression.split(" ");
-        for (String item : split) {
-            list.add(item);
-        }
+        Collections.addAll(list, split);
         return list;
     }
 }
@@ -144,10 +142,10 @@ public class PolandNotation {
  * 编写一个类 Operation 可以返回一个运算符 对应的优先级
  */
 class Operation {
-    private static int ADD = 1;
-    private static int SUB = 1;
-    private static int MUL = 2;
-    private static int DIV = 2;
+    private static final int ADD = 1;
+    private static final int SUB = 1;
+    private static final int MUL = 2;
+    private static final int DIV = 2;
 
     //写一个方法，返回对应的优先级数字
     public static int getValue(String operation) {

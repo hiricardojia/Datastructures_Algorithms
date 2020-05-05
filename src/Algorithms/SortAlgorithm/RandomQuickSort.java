@@ -85,11 +85,17 @@ public class RandomQuickSort {
         randomQuickSort(arr, 0, arr.length - 1);
     }
 
-    private static void randomQuickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int pivotIndex = randomPartition(arr, low, high);
-            randomQuickSort(arr, low, pivotIndex - 1);
-            randomQuickSort(arr, pivotIndex + 1, high);
+    /**
+     * 随机快速排序内部实现
+     * @param arr 待排序数组
+     * @param left 左指针
+     * @param right 右指针
+     */
+    private static void randomQuickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int pivotIndex = randomPartition(arr, left, right);
+            randomQuickSort(arr, left, pivotIndex - 1);
+            randomQuickSort(arr, pivotIndex + 1, right);
         }
     }
 
